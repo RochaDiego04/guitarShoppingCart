@@ -1,10 +1,12 @@
-export const db = [
+import type { Guitar } from '../types'
+
+export const db : Guitar[] = [
     {
         id: 1,
         name: 'Lukather',
         image: 'guitarra_01',
         description: 'Morbi ornare augue nisl, vel elementum dui mollis vel. Curabitur non ex id eros fermentum hendrerit.',
-        price: 299,
+        price: 299
     },
     {
         id: 2,

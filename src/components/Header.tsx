@@ -1,6 +1,24 @@
-import PropTypes from 'prop-types';
+import type { CartItem, Guitar } from "../types"
 
-function Header({cart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart, isEmpty, cartTotal}) {
+type HeaderProps = {
+    cart: CartItem[]
+    removeFromCart: (id: Guitar['id'] ) => void
+    decreaseQuantity: (id: Guitar['id'] ) => void
+    increaseQuantity: (id: Guitar['id'] ) => void
+    clearCart: () => void
+    isEmpty: boolean
+    cartTotal: number
+}
+
+export default function Header({
+        cart, 
+        removeFromCart, 
+        decreaseQuantity, 
+        increaseQuantity, 
+        clearCart,
+        isEmpty, 
+        cartTotal
+    } : HeaderProps ) {
     return (
         <header className="py-5 header">
             <div className="container-xl">
@@ -92,15 +110,3 @@ function Header({cart, removeFromCart, decreaseQuantity, increaseQuantity, clear
         </header>
     )
 }
-
-Header.propTypes = {
-    cart: PropTypes.array.isRequired,
-    removeFromCart: PropTypes.func.isRequired,
-    decreaseQuantity: PropTypes.func.isRequired,
-    increaseQuantity: PropTypes.func.isRequired,
-    clearCart: PropTypes.func.isRequired,
-    isEmpty: PropTypes.bool.isRequired,
-    cartTotal: PropTypes.number.isRequired
-};
-
-export default Header;
