@@ -1,4 +1,6 @@
-export default function Header({cart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart, isEmpty, cartTotal}) {
+import PropTypes from 'prop-types';
+
+function Header({cart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart, isEmpty, cartTotal}) {
     return (
         <header className="py-5 header">
             <div className="container-xl">
@@ -90,3 +92,15 @@ export default function Header({cart, removeFromCart, decreaseQuantity, increase
         </header>
     )
 }
+
+Header.propTypes = {
+    cart: PropTypes.array.isRequired,
+    removeFromCart: PropTypes.func.isRequired,
+    decreaseQuantity: PropTypes.func.isRequired,
+    increaseQuantity: PropTypes.func.isRequired,
+    clearCart: PropTypes.func.isRequired,
+    isEmpty: PropTypes.bool.isRequired,
+    cartTotal: PropTypes.number.isRequired
+};
+
+export default Header;
